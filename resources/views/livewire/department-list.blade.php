@@ -1,6 +1,6 @@
 <div class="overflow-hidden rounded-lg bg-white shadow dark:bg-zinc-900" x-data="{ filtersOpen: false }">
     <div class="px-4 py-5 sm:p-6">
-        <div class="flex items-center justify-between">
+        <div class="flex items-center justify-between mb-10">
             <div>
                 <h3 class="text-base font-semibold leading-6 text-zinc-900 dark:text-white">
                     {{ __('Departments') }}
@@ -45,15 +45,19 @@
                 <thead class="bg-zinc-50 dark:bg-zinc-800">
                     <tr>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-zinc-500 dark:text-zinc-400">{{ __('Name') }}</th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-zinc-500 dark:text-zinc-400">{{ __('Users') }}</th>
-                        <th scope="col" class="relative px-6 py-3"><span class="sr-only">{{ __('Actions') }}</span></th>
+                        <th scope="col" class="px-6 py-3 w-px text-left text-xs font-medium uppercase tracking-wider text-zinc-500 dark:text-zinc-400">{{ __('Users') }}</th>
+                        <th scope="col" class="relative px-6 py-3 w-px"><span class="sr-only">{{ __('Actions') }}</span></th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-zinc-200 bg-white dark:divide-zinc-800 dark:bg-zinc-900">
                     @forelse ($departments as $department)
                         <tr wire:key="department-{{ $department->id }}">
                             <td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-zinc-900 dark:text-white">{{ $department->name }}</td>
-                            <td class="whitespace-nowrap px-6 py-4 text-sm text-zinc-500">{{ $department->users_count }}</td>
+                            <td class="whitespace-nowrap px-6 py-4 text-sm text-zinc-500">
+                                <flux:badge :color="$department->users_count > 0 ? 'sky' : 'zinc'">
+                                    {{ $department->users_count }}
+                                </flux:badge>
+                            </td>
                             <td class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
                                 <flux:dropdown>
                                     <flux:button variant="ghost" icon="ellipsis-vertical" />

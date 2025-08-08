@@ -2,7 +2,7 @@
     <flux:heading size="lg">{{ __('Create Department') }}</flux:heading>
     <flux:text class="mt-1">{{ __('Enter the name for the new department.') }}</flux:text>
     <div class="mt-6">
-        <flux:input wire:model="name" :label="__('Department Name')" />
+        <flux:input wire:model="name" :label="__('Name')" />
     </div>
     <div class="mt-6 flex justify-end gap-3">
         <flux:button wire:click.prevent="$dispatch('formCancelled')" variant="ghost">{{ __('Cancel') }}</flux:button>

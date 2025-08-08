@@ -9,7 +9,7 @@
             <flux:input wire:model="name" :label="__('Name')" />
             <flux:input wire:model="email" type="email" :label="__('Email')" />
             <flux:input wire:model="password" type="password" :label="__('Password')"
-                :hint="__('Leave blank to keep current password')" />
+                :placeholder="__('Leave blank to keep current password')" />
 
             <flux:select wire:model="role_id" :label="__('Role')">
                 <option value="" disabled>{{ __('Select a role') }}</option>
