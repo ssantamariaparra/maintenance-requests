@@ -17,6 +17,7 @@
                     {{-- Link to User Management --}}
                     @if(auth()->user()->hasRole('admin'))
                         <flux:navlist.item icon="users" :href="route('users.management')" :current="request()->routeIs('users.management*')" wire:navigate>{{ __('Users') }}</flux:navlist.item>
+                        <flux:navlist.item icon="building-office-2" :href="route('departments.management')" :current="request()->routeIs('departments.management*')" wire:navigate>{{ __('Departments') }}</flux:navlist.item>
                     @endif
                 </flux:navlist.group>
             </flux:navlist>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\DepartmentPage;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
@@ -23,6 +24,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::middleware(['role:admin'])->prefix('admin')->group(function () {
         Route::get('users', UserPage::class)->name('users.management');
+        Route::get('departments', DepartmentPage::class)->name('departments.management');
     });
 });
 
